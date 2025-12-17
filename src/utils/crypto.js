@@ -19,7 +19,7 @@ function encrypt(text) {
 function decrypt(text) {
     try {
         const [ivHex, encrypted] = text.split(':');
-        if (!ivHex || !encrypted) return text; // jeśli nie jest szyfrogramem, zwracaj oryginał
+        if (!ivHex || !encrypted) return text;
         const iv = Buffer.from(ivHex, 'hex');
         const decipher = crypto.createDecipheriv('aes-256-cbc', ENCRYPTION_KEY, iv);
         let decrypted = decipher.update(encrypted, 'hex', 'utf8');
@@ -27,7 +27,7 @@ function decrypt(text) {
         return decrypted;
     } catch (err) {
         console.error("Błąd odszyfrowania:", err);
-        return text; // zwracamy oryginał w przypadku błędu
+        return text;
     }
 }
 
