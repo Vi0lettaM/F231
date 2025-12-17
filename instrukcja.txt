@@ -1,0 +1,18 @@
+1 krok - Docker
+Otwórz Docker Desktop
+> Naciśnij >_ na dole z prawej strony 
+> Wpisz 
+   docker run --name mongo -p 27017:27017 -d mongo:6.0
+		       ^ albo wpisz swoją nazwę
+> Naciśnij Enter
+
+
+2 krok - MongoDB
+Otwórz MongoDB Compass 
+> Naciśnij + koło Connections z lewej strony 
+> Wpisz nazwę, którą użyłeś przy tworzeniu w Docker (wybierz kolor - opcjonalnie) 
+> Naciśnij Save & Connect
+
+npm init -y
+npm install express ejs mysql
+docker start trips - w docker

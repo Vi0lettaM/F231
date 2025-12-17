@@ -1,0 +1,60 @@
+# Uruchamianie bazy danych w Dockerze
+
+## MongoDB (używane w projekcie)
+
+### 1. Uruchomienie nowego kontenera
+
+```bash
+docker run --name mongo -p 27017:27017 -d mongo:6.0
+```
+
+* `--name mongo` – nazwa kontenera
+* `-p 27017:27017` – port lokalny 27017 mapowany na port kontenera 27017
+* `-d mongo:6.0` – uruchomienie MongoDB w wersji 6.0 w tle
+
+> Domyślnie MongoDB w tym ustawieniu nie wymaga loginu ani hasła dla lokalnego dostępu.
+
+### 2. Uruchomienie istniejącego kontenera
+
+```bash
+docker start mongo
+```
+
+### 3. Sprawdzenie działających kontenerów
+
+```bash
+docker ps
+```
+
+* Powinieneś zobaczyć kontener `mongo` działający na porcie 27017.
+
+---
+
+## MySQL
+
+### 1. Uruchomienie nowego kontenera
+
+```bash
+docker run --name mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:8.0
+```
+
+* `--name mysql` – nazwa kontenera
+* `-e MYSQL_ROOT_PASSWORD=root` – hasło dla użytkownika `root`
+* `-p 3306:3306` – port lokalny 3306 mapowany na port kontenera 3306
+* `-d mysql:8.0` – uruchomienie MySQL w wersji 8.0 w tle
+
+### 2. Uruchomienie istniejącego kontenera
+
+```bash
+docker start mysql
+```
+
+### 3. Sprawdzenie działających kontenerów
+
+```bash
+docker ps
+```
+
+---
+> Po uruchomieniu kontenera MongoDB możesz połączyć się np. w MongoDB Compass pod adresem:
+> `mongodb://localhost:27017`

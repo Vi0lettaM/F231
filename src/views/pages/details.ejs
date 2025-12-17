@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+    <main>
+        <div class="trip-details">
+            <h2>Szczegóły podróży</h2>
+
+            <p><b>Tytuł:</b>
+                <%= trip.title %>
+            </p>
+            <p><b>Kontynent:</b>
+                <%= trip.continent %>
+            </p>
+            <p><b>Osoba:</b>
+                <%= trip.name %>
+                    <%= trip.surname %>
+            </p>
+            <p><b>Od:</b>
+                <%= trip.dateFrom || '' %>
+            </p>
+            <p><b>Do:</b>
+                <%= trip.dateTo || '' %>
+            </p>
+
+            <p><b>Status:</b>
+                <%= trip.status %>
+            </p>
+
+            <a href="/">← Wróć do listy</a>
+        </div>
+    </main>
+    <%- include('../partials/footer') %>

@@ -1,0 +1,39 @@
+<%- include('../partials/header') %>
+
+    <main>
+        <div class="form-card">
+            <h2>Edytuj podróż</h2>
+
+            <form action="/edit/<%= trip._id %>" method="post">
+                <input type="text" name="title" value="<%= trip.title %>" required>
+
+                <select name="continent" id="continent">
+                    <option value="Afryka" <%=trip.continent==='Afryka' ? 'selected' : '' %>>Afryka</option>
+                    <option value="Antarktyda" <%=trip.continent==='Antarktyda' ? 'selected' : '' %>>Antarktyda</option>
+                    <option value="Azja" <%=trip.continent==='Azja' ? 'selected' : '' %>>Azja</option>
+                    <option value="Australia" <%=trip.continent==='Australia' ? 'selected' : '' %>>Australia</option>
+                    <option value="Europa" <%=trip.continent==='Europa' ? 'selected' : '' %>>Europa</option>
+                    <option value="Ameryka Północna" <%=trip.continent==='Ameryka Północna' ? 'selected' : '' %>>Ameryka Północna
+                    </option>
+                    <option value="Ameryka Południowa" <%=trip.continent==='Ameryka Południowa' ? 'selected' : '' %>>Ameryka Południowa
+                    </option>
+                </select>
+
+                <input type="text" name="name" value="<%= trip.name %>" required>
+                <input type="text" name="surname" value="<%= trip.surname %>" required>
+
+                <input type="date" name="dateFrom" value="<%= trip.dateFrom %>">
+                <input type="date" name="dateTo" value="<%= trip.dateTo %>">
+
+                <select name="status" id="status">
+                    <option value="planuje" <%=trip.status==='planuje' ? 'selected' : '' %>>planuje</option>
+                    <option value="realizuje" <%=trip.status==='realizuje' ? 'selected' : '' %>>realizuje</option>
+                    <option value="zrealizowane" <%=trip.status==='zrealizowane' ? 'selected' : '' %>>zrealizowane</option>
+                </select>
+
+                <button type="submit" class="primary-btn">Zapisz zmiany</button>
+            </form>
+        </div>
+    </main>
+
+    <%- include('../partials/footer') %>

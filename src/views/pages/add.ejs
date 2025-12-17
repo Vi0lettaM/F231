@@ -1,0 +1,35 @@
+<%- include('../partials/header') %>
+    <main>
+        <h1>Dodaj podróż</h1>
+
+        <form action="/add" method="post">
+            <input type="text" name="title" placeholder="Np do Berlinu" required>
+
+            <select name="continent" id="continent">
+                <option value="Afryka">Afryka</option>
+                <option value="Antarktyda">Antarktyda</option>
+                <option value="Azja">Azja</option>
+                <option value="Australia">Australia</option>
+                <option value="Europa">Europa</option>
+                <option value="Ameryka Północna">Ameryka Północna</option>
+                <option value="Ameryka Południowa">Ameryka Południowa</option>
+            </select><br>
+
+            <input type="text" name="name" placeholder="Jan" required>
+            <input type="text" name="surname" placeholder="Kowalski" required><br>
+
+            <label for="dateFrom">Z</label>
+            <input type="date" name="dateFrom">
+            <label for="dateTo">po</label>
+            <input type="date" name="dateTo">
+
+            <select name="status" id="status">
+                <option value="planuje">planuje</option>
+                <option value="realizuje">realizuje</option>
+                <option value="zrealizowane">zrealizowane</option>
+            </select><br>
+
+            <button type="submit">Zapisz</button>
+        </form>
+    </main>
+<%- include('../partials/footer') %>

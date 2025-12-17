@@ -1,0 +1,85 @@
+<%- include('../partials/header') %>
+
+    <main>
+        <form method="get" action="/" style="margin-bottom: 30px;">
+            <h2>Filtruj podróże</h2>
+
+            <select name="continent">
+                <option value="">Wszystkie kontynenty</option>
+                <option value="Afryka">Afryka</option>
+                <option value="Antarktyda">Antarktyda</option>
+                <option value="Azja">Azja</option>
+                <option value="Australia">Australia</option>
+                <option value="Europa">Europa</option>
+                <option value="Ameryka Północna">Ameryka Północna</option>
+                <option value="Ameryka Południowa">Ameryka Południowa</option>
+            </select>
+
+            <select name="status">
+                <option value="">Wszystkie statusy</option>
+                <option value="planuje">planuje</option>
+                <option value="realizuje">realizuje</option>
+                <option value="zrealizowane">zrealizowane</option>
+            </select>
+
+            <h2>Sortowanie</h2>
+            <select name="sortField1">
+                <option value="">--Wybierz pole--</option>
+                <option value="title">Tytuł</option>
+                <option value="dateFrom">Data od</option>
+                <option value="dateTo">Data do</option>
+            </select>
+            <select name="sortOrder1">
+                <option value="asc">Rosnąco</option>
+                <option value="desc">Malejąco</option>
+            </select>
+            
+            <select name="sortField2">
+                <option value="">--Wybierz drugie pole--</option>
+                <option value="title">Tytuł</option>
+                <option value="dateFrom">Data od</option>
+                <option value="dateTo">Data do</option>
+            </select>
+            <select name="sortOrder2">
+                <option value="asc">Rosnąco</option>
+                <option value="desc">Malejąco</option>
+            </select>
+
+
+            <button type="submit">Filtruj</button>
+            <a href="/" style="margin-left: 15px;">Wyczyść</a>
+        </form>
+
+        <ul>
+            <% if (trips.length===0) { %>
+                <li>
+                    <p>Brak podróży spełniających kryteria.</p>
+                </li>
+                <% } %>
+
+                    <% trips.forEach(trip=> { %>
+                        <li>
+                            <p><b>
+                                    <%= trip.title %>
+                                </b> (<%= trip.continent %>)</p>
+                            <p><i>
+                                    <%= trip.name %>
+                                        <%= trip.surname %>
+                                </i></p>
+                            <p>z (<%= trip.dateFrom || '-' %>) po (<%= trip.dateTo || '-' %>)</p>
+                            <p>Status: <%= trip.status %>
+                            </p>
+
+                            <a href="/edit/<%= trip._id %>">Edytuj</a>
+                            <a href="/details/<%= trip._id %>">Szczegóły</a>
+
+                            <form action="/delete/<%= trip._id %>" method="post" style="display:inline;">
+                                <button type="submit">Usuń</button>
+                            </form>
+                        </li>
+                        <% }); %>
+        </ul>
+
+    </main>
+
+    <%- include('../partials/footer') %>
